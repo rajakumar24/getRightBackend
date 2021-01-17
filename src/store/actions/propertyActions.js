@@ -11,6 +11,7 @@ import {
 } from "../types";
 import axios from "axios";
 import { getUserPropertyList } from "./profileActions";
+import { baseUrl } from "../../baseURL/baseURL";
 
 export const addProperty = (propertyDetails) => async (dispatch) => {
   dispatch({
@@ -20,10 +21,7 @@ export const addProperty = (propertyDetails) => async (dispatch) => {
     type: CLEAR_MESSAGE,
   });
   try {
-    const res = await axios.post(
-      "http://localhost:3001/api/property/add",
-      propertyDetails
-    );
+    const res = await axios.post(`${baseUrl}api/property/add`, propertyDetails);
 
     dispatch({
       type: SET_PROPERTY,
@@ -54,7 +52,7 @@ export const addAdminProperty = (propertyDetails) => async (dispatch) => {
   });
   try {
     const res = await axios.post(
-      "http://localhost:3001/api/property/AdminMaster",
+      `${baseUrl}api/property/AdminMaster`,
       propertyDetails
     );
 
@@ -85,7 +83,7 @@ export const updateProperty = (propertyDetails) => async (dispatch) => {
   // const property = await axios.post("/api/property/update", propertyDetails);
   try {
     const property = await axios.post(
-      "http://localhost:3001/api/property/update",
+      `${baseUrl}api/property/update`,
       propertyDetails
     );
     dispatch({
@@ -102,7 +100,7 @@ export const updateProperty = (propertyDetails) => async (dispatch) => {
 
 export const deleteProperty = (id) => async (dispatch) => {
   try {
-    await axios.delete("http://localhost:3001/api/property/delete", {
+    await axios.delete(`${baseUrl}api/property/delete`, {
       params: {
         id: id,
       },
@@ -127,14 +125,11 @@ export const getAllProperties = (
   });
 
   try {
-    const propertiesList = await axios.get(
-      "http://localhost:3001/api/property/all",
-      {
-        params: { currentPage, pageSize, selectedFilter },
-      }
-    );
+    const propertiesList = await axios.get(`${baseUrl}api/property/all`, {
+      params: { currentPage, pageSize, selectedFilter },
+    });
 
-    const totalCount = await axios.get("http://localhost:3001/api/property/", {
+    const totalCount = await axios.get(`${baseUrl}api/property/`, {
       params: { filter: selectedFilter },
     });
 
@@ -157,10 +152,10 @@ export const getAllProperties = (
 
 export const getProperty = (id, history) => async (dispatch) => {
   try {
-    let property = await axios.get(`http://localhost:3001/api/property/${id}`);
+    let property = await axios.get(`${baseUrl}api/property/${id}`);
 
     const profile = await axios.get(
-      `http://localhost:3001/api/profile/${property.data.user._id}`
+      `${baseUrl}api/profile/${property.data.user._id}`
     );
 
     dispatch({

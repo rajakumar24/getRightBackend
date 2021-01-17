@@ -3,6 +3,7 @@ import { TextArea } from "../../../components";
 import axios from "axios";
 import { connect } from "react-redux";
 import * as actions from "../../../store/actions";
+import { baseUrl } from "../../../baseURL/baseURL";
 
 class QuesPage extends Component {
   state = {
@@ -136,7 +137,7 @@ class QuesPage extends Component {
     console.log("quess", propertyDetails.question);
     console.log("idd", id);
     axios
-      .put(`http://localhost:3001/api/property/${id}`, propertyDetails)
+      .put(`${baseUrl}api/property/${id}`, propertyDetails)
       .then((response) => {
         console.log(response);
       })

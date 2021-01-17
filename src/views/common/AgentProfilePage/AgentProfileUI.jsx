@@ -1,4 +1,5 @@
 import React from "react";
+import { baseUrl } from "../../../baseURL/baseURL";
 
 class AgentProfileUI extends React.Component {
   render() {
@@ -28,7 +29,7 @@ class AgentProfileUI extends React.Component {
           <div className="d-flex flex-row border rounded">
             <div className="p-0 w-25">
               <img
-                src={`http://localhost:3001/uploads/${imgUrl}`}
+                src={`${baseUrl}uploads/${imgUrl}`}
                 className="img-thumbnail border-0"
                 alt=""
               />

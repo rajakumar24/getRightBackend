@@ -6,6 +6,7 @@ import { Input, TextArea, SelectList, CheckBox } from "../../../components";
 import { Spinner } from "reactstrap";
 import axios from "axios";
 import { Redirect } from "react-router-dom";
+import { baseUrl } from "../../../baseURL/baseURL";
 
 class AdminPropertyPage extends Component {
   state = {
@@ -113,10 +114,7 @@ class AdminPropertyPage extends Component {
     //add
 
     axios
-      .put(
-        `http://localhost:3001/api/property/${propertyDetails.id}`,
-        propertyDetails
-      )
+      .put(`${baseUrl}api/property/${propertyDetails.id}`, propertyDetails)
       .then((response) => {
         // setUserSession(response.data.token, response.data.user);
         console.log(response);

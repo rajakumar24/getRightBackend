@@ -42,13 +42,12 @@
 .footer__containerFour {
   display: flex;
   justify-content: center;
-  /* align-items: center; */
+  font-size: 13px;
   flex-direction: row;
-  /* margin-top: 5px; */
+  color: rgb(78, 80, 80);
   height: 50px;
   width: 100%;
   background-color: black;
-  color: white;
 }
 .footer__titleOne {
   display: flex;
@@ -91,7 +90,7 @@
 .header_name {
   font-family: "Redressed", cursive;
   font-weight: 500;
-  font-size: 20px;
+  font-size: 15px;
   letter-spacing: 0.1rem;
   color: white;
 }
@@ -105,7 +104,6 @@
   font-weight: 400;
   font-size: 12px;
   letter-spacing: 0.05rem;
-  color: rgb(185, 182, 182);
 }
 /* .footerHead {
   position: relative;
@@ -175,4 +173,5 @@
 .CommonFamily {
   font-family: "Montserrat";
   letter-spacing: 0.1rem;
+  color: rgb(78, 80, 80);
 }

@@ -2,7 +2,6 @@ import React from "react";
 import "./Footer.css";
 import { Link, withRouter } from "react-router-dom";
 import HomeWorkIcon from "@material-ui/icons/HomeWork";
-import { Grid } from "phoenix-component-2.0";
 
 const Footer = (props) => {
   return (
@@ -75,8 +74,17 @@ const Footer = (props) => {
           <div className="footer__titleOneHeader">
             <p className="header__logo">
               {/* <HomeWorkIcon style={{ color: "yellow" }} />{" "} */}
-              <span style={{ color: "yellow", marginTop: "0px" }}>Ge</span>
-              <span className="header_name">tRightProperty.Com</span>
+              <span
+                style={{
+                  color: "#4bd80a",
+                  marginTop: "0px",
+                  fontSize: "22px",
+                  marginRight: ".15rem",
+                }}
+              >
+                G
+              </span>
+              <span className="header_name">etRightProperty.Com</span>
             </p>
           </div>
           <p
@@ -94,18 +102,50 @@ const Footer = (props) => {
         {/* </Grid>
           <Grid item xs={6} sm={6} md={5}> */}
         <div className="footer__titleTwo">
-          <p className="header__logoItem">Contact Us</p>
-          <p className="header__logoItemPart">Contact Us</p>
-          <p className="header__logoItemPart">Corporate Enquiry</p>
-          <p className="header__logoItemPart">Media</p>
-          <p className="header__logoItemPart">Youtube</p>
-          <p className="header__logoItemPart">Medium</p>
+          <p>
+            <span
+              className="header__logoItem"
+              style={{ color: "#4bd80a", marginTop: "0px", fontSize: "22px" }}
+            >
+              C
+            </span>
+            <span className="header_name ">ontact Us</span>
+          </p>
+          <p className="header__logoItemPart" style={{ marginTop: "-5px" }}>
+            Contact Us
+          </p>
+          <p className="header__logoItemPart" style={{ marginTop: "-5px" }}>
+            Corporate Enquiry
+          </p>
+          <p className="header__logoItemPart" style={{ marginTop: "-5px" }}>
+            Media
+          </p>
+          <p className="header__logoItemPart" style={{ marginTop: "-5px" }}>
+            Youtube
+          </p>
+          <p className="header__logoItemPart" style={{ marginTop: "-5px" }}>
+            Medium
+          </p>
         </div>
         <div className="footer__titleTwo">
-          <p className="header__logoItem">Follow Us</p>
-          <p className="header__logoItemPart">Share On Facebook</p>
-          <p className="header__logoItemPart">Share on Twitter</p>
-          <p className="header__logoItemPart">Share on Instagram</p>
+          <p>
+            <span
+              className="header__logoItem"
+              style={{ color: "#4bd80a", marginTop: "0px", fontSize: "22px" }}
+            >
+              F
+            </span>
+            <span className="header_name ">ollow Us</span>
+          </p>
+          <p className="header__logoItemPart" style={{ marginTop: "-5px" }}>
+            Share On Facebook
+          </p>
+          <p className="header__logoItemPart" style={{ marginTop: "-5px" }}>
+            Share on Twitter
+          </p>
+          <p className="header__logoItemPart" style={{ marginTop: "-5px" }}>
+            Share on Instagram
+          </p>
         </div>
         {/* </Grid>
         </Grid> */}

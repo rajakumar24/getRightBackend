@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, Redirect } from "react-router-dom";
 import "./CardOne.css";
+import { baseUrl } from "../../baseURL/baseURL";
 
 class CardOne extends React.Component {
   render() {
@@ -18,47 +19,33 @@ class CardOne extends React.Component {
     } = this.props;
 
     return (
-      // <Link
-      //   to={`/property-detail/${propertyId}`}
-      //   className="btn btn-primary mt-3"
-      // >
-      // <Redirect to={`/property-detail/${propertyId}`}>
-      <div
-        className="product"
-        onClick={<Redirect to={`/property-detail/${propertyId}`} />}
-      >
-        <div className="product__imgContainer">
-          <img
-            className={`product__img ${"product__imgLarge"}`}
-            src={`http://localhost:3001/uploads/${img}`}
-            alt=""
-          />
-
-          <div className="product__info">
+      <Link to={`/property-detail/${propertyId}`}>
+        <div
+          className="product"
+          style={{ backgroundImage: `url(${baseUrl}uploads/${img})` }}
+        >
+          <div className="product__imageContainer">
+            {/* <div className="product__info"> */}
             <p className="product__title">{title}</p>
             <p className="product__price">
               <small>&#8377;</small>
               <strong>{price} Lakhs</strong>
             </p>{" "}
-            <p className="product__description">{description}</p>
+            {/* </div> */}
+            {/* <p className="product__description">{description}</p> */}
+            {/* <Link to={`/property-detail/${propertyId}`}>
+            <img
+              className={`product__img ${"product__imgLarge"}`}
+              src={`${baseUrl}uploads/${img}`}
+              alt=""
+            />
+          </Link> */}
           </div>
-          {/* <div className="product__rating">
-          {Array(rating)
-            .fill()
-            .map((_, i) => (
-              <p>⭐</p>
-            ))}
-        </div> */}
-          <Link
-            to={`/property-detail/${propertyId}`}
-            // className="btn btn-primary mt-3"
-          >
-            {btnText}
-          </Link>
+          {/* <Link to={`/property-detail/${propertyId}`}>{btnText}</Link> */}
         </div>
-
-        {/* <button onClick={addToBasket}>Add to Basket</button> */}
-      </div>
+      </Link>
+      //      <div className="product__imgContainer">
+      // </div>
       // </Redirect>
       // </Link>
 

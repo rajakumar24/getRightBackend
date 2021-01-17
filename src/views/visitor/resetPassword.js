@@ -4,6 +4,7 @@ import {
   NotificationContainer,
   NotificationManager,
 } from "react-notifications";
+import { baseUrl } from "../../baseURL/baseURL";
 
 export default class resetPassword extends Component {
   constructor(props) {
@@ -49,7 +50,7 @@ export default class resetPassword extends Component {
     // const data = { email: this.state.email, };
     // console.log(data)
     axios
-      .post("http://localhost:3001/api/user/updatePassword", this.state)
+      .post(`${baseUrl}api/user/updatePassword`, this.state)
       .then((result) => {
         NotificationManager.success(result.data.msg);
       })

@@ -11,6 +11,7 @@ import AdminRedirect from "./AdminRedirect";
 import { NavLink } from "react-router-dom";
 //
 import axios from "axios";
+import { baseUrl } from "../../../baseURL/baseURL";
 import Pusher from "pusher-js";
 // import Spinner from 'react-spinkit';
 import { Container, Row, Col } from "react-bootstrap";
@@ -132,7 +133,7 @@ class Dashboard extends React.Component {
     );
 
     axios
-      .post("http://localhost:3001/api/profile/imageUpdate", formData)
+      .post(`${baseUrl}api/profile/imageUpdate`, formData)
       .then(({ data }) => {
         console.log("data", data.fileName);
         this.setState({
@@ -240,10 +241,7 @@ class Dashboard extends React.Component {
                       <div className="gallery">
                         {this.state.images.map((url, i) => {
                           return (
-                            <img
-                              key={i}
-                              src={`http://localhost:3001/uploads/${url}`}
-                            />
+                            <img key={i} src={`${baseUrl}uploads/${url}`} />
                           );
                         })}
                       </div>

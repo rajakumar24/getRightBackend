@@ -2,6 +2,7 @@ import React from "react";
 
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { baseUrl } from "../../baseURL/baseURL";
 import { Input, TextArea, SelectList, CheckBox } from "../../components/";
 
 // added
@@ -43,7 +44,7 @@ class CardSix extends React.Component {
     };
     console.log("enquiry", enquiryDetails);
     axios
-      .post(`http://localhost:3001/api/property/enquiry`, enquiryDetails)
+      .post(`${baseUrl}api/property/enquiry`, enquiryDetails)
       .then((response) => {
         console.log(response);
       })

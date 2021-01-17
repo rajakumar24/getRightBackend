@@ -5,6 +5,7 @@ import { Input, TextArea, SelectList, CheckBox } from "../../../components/";
 import { AgentMenu } from "..";
 import { Spinner } from "reactstrap";
 import axios from "axios";
+import { baseUrl } from "../../../baseURL/baseURL";
 
 class EditPropertyPage extends Component {
   state = {
@@ -51,7 +52,7 @@ class EditPropertyPage extends Component {
     //     question: ""
     //   }
     //  ],
-    ansmark: "answer",
+    ansmark: "",
     errors: {},
   };
 
@@ -73,24 +74,27 @@ class EditPropertyPage extends Component {
     });
   };
 
-  // handleInputQuestionChange = ({ currentTarget }) => {
-
-  //   this.setState({
-  //    quesmark: currentTarget.value
-  //   });
-
-  // };
+  handleInputQuestionChange = ({ currentTarget }) => {
+    this.setState({
+      ansmark: currentTarget.value,
+    });
+  };
 
   onFormSubmit = (e) => {
     e.preventDefault();
 
     const { ansmark, answer } = this.state;
-    if (ansmark != null) {
-      this.state.answer = this.state.answer || [];
-      this.state.answer.push(ansmark);
-    } else {
-      return alert("Please Enter Your Answer First1!");
-    }
+    // if (ansmark != null) {
+    //   this.state.answer = this.state.answer || [];
+    //   this.state.answer.push(ansmark);
+    // } else {
+    //   return alert("Please Enter Your Answer First1!");
+    // }
+    console.log("ansmark", ansmark);
+    answer.push(ansmark);
+    this.setState({
+      answer,
+    });
 
     // const { obej } = this.state;
 
@@ -134,10 +138,7 @@ class EditPropertyPage extends Component {
 
     // this.props.updateProperty(propertyDetails);
     axios
-      .put(
-        `http://localhost:3001/api/property/${propertyDetails.id}`,
-        propertyDetails
-      )
+      .put(`${baseUrl}api/property/${propertyDetails.id}`, propertyDetails)
       .then((response) => {
         // setUserSession(response.data.token, response.data.user);
         console.log(response);
@@ -541,11 +542,13 @@ class EditPropertyPage extends Component {
                         label="answer"
                         name="answer"
                         placeholder="answer..."
-                        onChange={(e) =>
-                          this.setState({ ansmark: e.target.value })
-                        }
+                        onChange={this.handleInputQuestionChange}
                         // onChange={(e) => this.setState({ obej: {question: {list}, answer: e.target.value } })}
-                        value={this.state.answer[index]}
+                        value={
+                          this.state.answer[index] !== "answer"
+                            ? this.state.answer[index]
+                            : this.state.ansmark
+                        }
                         // value={list.answer}
 
                         // error={this.props.errors.answer}
@@ -620,7 +623,7 @@ class EditPropertyPage extends Component {
         </div>
       );
     }
-
+    console.log("ansmarkstate", this.state.ansmark);
     return (
       <div className="container-fluid">
         <div className="row">

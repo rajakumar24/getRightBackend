@@ -1,6 +1,7 @@
 import React from "react";
 import { TextArea } from "../../../components/";
 import axios from "axios";
+import { baseUrl } from "../../../baseURL/baseURL";
 
 class QuestionPage extends React.Component {
   state = {
@@ -30,7 +31,7 @@ class QuestionPage extends React.Component {
     console.log("skddj", id);
     // this.props.addProperty(propertyDetails);
     axios
-      .post(`http://localhost:3001/api/property/${id}`, propertyDetails)
+      .post(`${baseUrl}api/property/${id}`, propertyDetails)
       .then((response) => {
         console.log(response);
       })

@@ -7,6 +7,7 @@ import { Spinner } from "reactstrap";
 import axios from "axios";
 import { Redirect } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { baseUrl } from "../../../baseURL/baseURL";
 
 class AdminQuesPage extends Component {
   state = {
@@ -170,10 +171,7 @@ class AdminQuesPage extends Component {
     //add
 
     axios
-      .put(
-        `http://localhost:3001/api/property/${propertyDetails.id}`,
-        propertyDetails
-      )
+      .put(`${baseUrl}api/property/${propertyDetails.id}`, propertyDetails)
       .then((response) => {
         // setUserSession(response.data.token, response.data.user);
         console.log(response);
@@ -310,7 +308,7 @@ class AdminQuesPage extends Component {
                   <img
                     style={{ width: "360px", height: "280px" }}
                     className="property-img"
-                    src={`http://localhost:3001/uploads/${this.state.imgUrl}`}
+                    src={`${baseUrl}uploads/${this.state.imgUrl}`}
                     alt="Responsive"
                   />
                 </div>
@@ -380,7 +378,7 @@ class AdminQuesPage extends Component {
                 <p>{this.state.country}</p>
                 <p>{this.state.state}</p>
                 <p>{this.state.city}</p>
-                <p>{this.state.zip}</p>this.state.approve
+                <p>{this.state.zip}</p>
                 <p>{this.state.propertyType}</p>
                 <p>{this.state.approve}</p>
                 <p>{this.state.answer}</p>

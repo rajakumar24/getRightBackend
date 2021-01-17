@@ -37,7 +37,7 @@ class HomePage extends React.Component {
       renderComponent = properties.slice(0, 3).map((property) => {
         if (property.approve === "Approved") {
           return (
-            <div key={property._id} className="col-lg-4 col-md-6 col-sm-12 ">
+            <div key={property._id}>
               <CardOne
                 propertyId={property._id}
                 img={property.imgUrl}
@@ -189,10 +189,8 @@ class HomePage extends React.Component {
               {/* </div> */}
             </div>
 
-            <div className="home__row">
-              {/* <div className="row  m-auto"> */}
-              {renderComponent}
-            </div>
+            {/* <div className="home__row"> */}
+            <div className="row  m-auto">{renderComponent}</div>
 
             <div className="home__moreProperty">
               <Link to="/properties-list" className="home__morePropertyButton">

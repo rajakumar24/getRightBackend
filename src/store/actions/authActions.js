@@ -9,6 +9,7 @@ import {
 import axios from "axios";
 import jwt_decode from "jwt-decode";
 import setAuthToken from "../../utils/setAuthToken";
+import { baseUrl } from "../../baseURL/baseURL";
 
 export const registerUser = (userData, history) => async (dispatch) => {
   dispatch({
@@ -18,10 +19,7 @@ export const registerUser = (userData, history) => async (dispatch) => {
     type: CLEAR_ERRORS,
   });
   try {
-    const res = await axios.post(
-      "http://localhost:3001/api/user/register",
-      userData
-    );
+    const res = await axios.post(`${baseUrl}api/user/register`, userData);
 
     dispatch({
       type: SET_MESSAGE,
@@ -46,10 +44,7 @@ export const loginUser = (userData) => async (dispatch) => {
     type: CLEAR_ERRORS,
   });
   try {
-    const res = await axios.post(
-      "http://localhost:3001/api/user/login",
-      userData
-    );
+    const res = await axios.post(`${baseUrl}api/user/login`, userData);
     if (res.data) {
       const { token } = res.data;
       localStorage.setItem("jwtToken", token);

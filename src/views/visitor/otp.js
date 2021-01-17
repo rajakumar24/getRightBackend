@@ -4,6 +4,7 @@ import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import axios from "axios";
 import * as actions from "../../store/actions";
 import { connect } from "react-redux";
+import { baseUrl } from "../../baseURL/baseURL";
 
 // import Otp from './components/Otp';
 
@@ -72,7 +73,7 @@ class App extends React.Component {
     // console.log("code", textDetails.countryCode)
     console.log("code", countryCodeValue);
     await axios
-      .get("http://localhost:3001/api/profile/otp", {
+      .get(`${baseUrl}api/profile/otp`, {
         params: {
           email: email,
           phone: phone,
@@ -99,7 +100,7 @@ class App extends React.Component {
     const { id, token } = this.state;
     // console.log("iddd", id)
     await axios
-      .get("http://localhost:3001/api/profile/verify", {
+      .get(`${baseUrl}api/profile/verify`, {
         params: {
           id: id,
           token: token,

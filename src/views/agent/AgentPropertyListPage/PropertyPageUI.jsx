@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Popup } from "../../../components";
+import { baseUrl } from "../../../baseURL/baseURL";
 
 class PropertyPageUI extends React.Component {
   render() {
@@ -38,7 +39,7 @@ class PropertyPageUI extends React.Component {
                         </p>
 
                         <img
-                          src={`http://localhost:3001/uploads/${property.imgUrl}`}
+                          src={`${baseUrl}uploads/${property.imgUrl}`}
                           style={{ width: "150px", height: "100px" }}
                           className=" img-thumbnail border-0"
                           alt=""

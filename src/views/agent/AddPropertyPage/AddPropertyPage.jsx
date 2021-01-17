@@ -11,6 +11,7 @@ import Spinner from "react-spinkit";
 import { Container, Row, Col } from "react-bootstrap";
 import "./Add.css";
 import Map from "./location/Location";
+import { baseUrl } from "../../../baseURL/baseURL";
 //
 
 class AddPropertyPage extends Component {
@@ -135,16 +136,14 @@ class AddPropertyPage extends Component {
     const formData = new FormData();
     formData.append("image", this.state.selectedFile, this.state.Imagename);
 
-    axios
-      .post("http://localhost:3001/api/property/upload", formData)
-      .then(({ data }) => {
-        console.log("data", data);
-        this.setState({
-          images: [data.fileName, ...this.state.images],
-          loading: false,
-          imgUrl: data.fileName,
-        });
+    axios.post(`${baseUrl}api/property/upload`, formData).then(({ data }) => {
+      console.log("data", data);
+      this.setState({
+        images: [data.fileName, ...this.state.images],
+        loading: false,
+        imgUrl: data.fileName,
       });
+    });
   };
   //
   mapInfo = (lat, long) => {
@@ -620,9 +619,7 @@ class AddPropertyPage extends Component {
               {/* <div className="gallery">{images}</div> */}
               <div className="gallery">
                 {this.state.images.map((url, i) => {
-                  return (
-                    <img key={i} src={`http://localhost:3001/uploads/${url}`} />
-                  );
+                  return <img key={i} src={`${baseUrl}uploads/${url}`} />;
                 })}
               </div>
             </Col>

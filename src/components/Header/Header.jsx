@@ -15,24 +15,31 @@ class Header extends React.Component {
     // const { name } = this.props.profileData.user;
     const authLinks = (
       <React.Fragment>
-        <NavLink className="bg-warning nav-item nav-link" to="/agent/dashboard">
+        <NavLink
+          className="nav-item nav-link header__optionLine"
+          style={{ backgroundColor: "#4bd80a" }}
+          to="/agent/dashboard"
+        >
           <span style={{ color: "white", marginLeft: "5px" }}>Dashboard</span>
         </NavLink>
         <NavLink
           onClick={this.onlogoutClick}
-          className="nav-item nav-link"
+          className="nav-item nav-link header__optionLine"
           to="/"
         >
-          <span style={{ color: "white", marginLeft: "-10px" }}>Logout</span>
+          <span style={{ color: "white", marginLeft: "-5px" }}>Logout</span>
         </NavLink>
       </React.Fragment>
     );
     const guestLinks = (
       <React.Fragment>
-        <NavLink className="nav-item nav-link" to="/registration">
+        <NavLink
+          className="nav-item nav-link header__optionLine"
+          to="/registration"
+        >
           <span style={{ color: "white" }}>Register</span>
         </NavLink>
-        <NavLink className="nav-item nav-link" to="/login">
+        <NavLink className="nav-item nav-link header__optionLine" to="/login">
           <span style={{ color: "white", marginLeft: "-13px" }}>Login</span>
         </NavLink>
       </React.Fragment>
@@ -42,9 +49,17 @@ class Header extends React.Component {
       <div className="header">
         <NavLink className="nav-link" to="/">
           <p className="header__logo">
-            <HomeWorkIcon style={{ color: "yellow", marginTop: "-10px" }} />{" "}
-            <span style={{ color: "yellow" }}>Ge</span>
-            <span className="header_name">tRightProperty</span>
+            <HomeWorkIcon style={{ color: "#4bd80a", marginTop: "-10px" }} />{" "}
+            <span
+              style={{
+                color: "#4bd80a",
+                fontSize: "22px",
+                marginRight: ".15rem",
+              }}
+            >
+              G
+            </span>
+            <span className="header_name">etRightProperty</span>
           </p>
         </NavLink>
 

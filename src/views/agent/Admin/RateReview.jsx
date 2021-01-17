@@ -6,6 +6,7 @@ import { Input, TextArea, SelectList, CheckBox } from "../../../components";
 import { Spinner } from "reactstrap";
 import axios from "axios";
 import { Redirect } from "react-router-dom";
+import { baseUrl } from "../../../baseURL/baseURL";
 // import { Link } from "react-router-dom";
 
 class RateReview extends Component {
@@ -143,10 +144,7 @@ class RateReview extends Component {
     console.log("hiopppy", propertyDetails);
 
     axios
-      .put(
-        `http://localhost:3001/api/property/${propertyDetails.id}`,
-        propertyDetails
-      )
+      .put(`${baseUrl}api/property/${propertyDetails.id}`, propertyDetails)
       .then((response) => {
         console.log("response", response);
         this.props.getProperty(this.props.match.params.id, this.props.history);
@@ -289,7 +287,7 @@ class RateReview extends Component {
                   <img
                     style={{ width: "360px", height: "280px" }}
                     className="property-img"
-                    src={`http://localhost:3001/uploads/${this.state.imgUrl}`}
+                    src={`${baseUrl}uploads/${this.state.imgUrl}`}
                     alt="Responsive"
                   />
                 </div>

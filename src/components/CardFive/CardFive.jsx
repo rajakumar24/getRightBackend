@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 // added
 import * as actions from "../../store/actions";
 import { Popup } from "../../components";
+import { baseUrl } from "../../baseURL/baseURL";
 
 class CardFive extends React.Component {
   // added
@@ -50,7 +51,7 @@ class CardFive extends React.Component {
 
               <img
                 className="card-img-top"
-                src={`http://localhost:3001/uploads/${imgUrl}`}
+                src={`${baseUrl}uploads/${imgUrl}`}
               />
             </div>
             <div className="col-lg-8 col-md-8  col-sm-8">

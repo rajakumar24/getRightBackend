@@ -4,6 +4,7 @@ import {
   NotificationContainer,
   NotificationManager,
 } from "react-notifications";
+import { baseUrl } from "../../baseURL/baseURL";
 
 export default class forgetpassword extends Component {
   constructor(props) {
@@ -27,7 +28,7 @@ export default class forgetpassword extends Component {
     }
     const data = { email: this.state.email };
     axios
-      .post("http://localhost:3001/api/user/reset", data)
+      .post(`${baseUrl}api/user/reset`, data)
       .then((result) => {
         NotificationManager.success(
           "Password Reset link sent to yout email .Please check the your email.Link Will be Valid For 30 min"

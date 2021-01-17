@@ -4,7 +4,9 @@ import QuestionPage from "./QuestionPage";
 //import { TextArea } from "../../../components/";QuesPage
 import QuesPage from "./QuestionPages";
 import { CardSix } from "../../../components";
+import { Grid } from "phoenix-component-2.0";
 import "./PropertyDetailUI.css";
+import { baseUrl } from "../../../baseURL/baseURL";
 
 class PropertyDetailUI extends React.Component {
   render() {
@@ -68,7 +70,7 @@ class PropertyDetailUI extends React.Component {
 
           <div className="property__containerDetail">
             <div className="property__containerImage">
-              <img src={`http://localhost:3001/uploads/${imgUrl}`} alt="" />
+              <img src={`${baseUrl}uploads/${imgUrl}`} alt="" />
             </div>
             <div className="property__containerImageRight">
               <div className="property__containerImageDetails">
@@ -273,35 +275,46 @@ class PropertyDetailUI extends React.Component {
               class="img_ad"
             />
           </div>
-          <div className="property__agent">
-            <p className="mt-3 ml-5 pb-3">
-              <strong>Owner:</strong>
-            </p>
-            <div className="pl-3 pt-2 pr-2 pb-2 w-75 border-left">
-              <h4 className="name text-primary">{name}</h4>
-              <p className="lead">{about}</p>
-              <ul className="agent-details list-group">
-                <li className="list-group-item">
-                  Phone: <span className="float-right">(123) 456 789</span>
-                </li>
-                <li className="list-group-item">
-                  Mobile: <span className="float-right">{mobile}</span>
-                </li>
-                <li className="list-group-item">
-                  Email: <span className="float-right">{email}</span>
-                </li>
-                <li className="list-group-item">
-                  Skype: <span className="float-right">{skype}</span>
-                </li>
-              </ul>
-              <Link
-                to={`/agent-profile/${_id}`}
-                className="text-right mt-4 btn btn-primary"
-              >
-                <i className="fa fa-user" /> View Profile
-              </Link>
-            </div>
-          </div>
+
+          <Grid container>
+            <Grid item xs={12} sm={12} md={9}>
+              <div className="property__agent">
+                <p
+                  className="property__detailsAmenities"
+                  style={{ marginLeft: "20px", marginTop: "20px" }}
+                >
+                  Property Owner Details:
+                </p>
+                <div className="property__separatorTwo"></div>
+
+                <div className="pl-4 pt-2 pr-2 pb-2 w-75">
+                  <p className="property__title">{name}</p>
+                  <p className="property__address">{about}</p>
+                  <div className="property__agentDetails">
+                    <p>
+                      {" "}
+                      Mobile: <span className="float-right">{mobile}</span>
+                    </p>
+                    <p>
+                      Email: <span className="float-right">{email}</span>
+                    </p>
+                  </div>
+                  <Link
+                    to={`/agent-profile/${_id}`}
+                    // style={{ marginLeft: "10px" }}
+                  >
+                    <button
+                      className="login__signInButton"
+                      style={{ marginLeft: "20px", marginRight: "20px" }}
+                    >
+                      {/* <i className="fa fa-user" />  */}
+                      View Profile
+                    </button>
+                  </Link>
+                </div>
+              </div>
+            </Grid>
+          </Grid>
         </div>
       </React.Fragment>
     );
